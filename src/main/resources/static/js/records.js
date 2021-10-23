@@ -24,7 +24,11 @@ function showData(data){
 		      <td>${d.fullName}</td>
 		      <td>${d.gender}</td>
 		      <td>${d.dob}</td>
-		      <td><a href="/edit.html#${d.studentId}">edit</a> </td>
+		      <td>
+		      <a href="/edit.html#${d.studentId}">edit</a> 
+		      	 <a href="#" onclick="showDeleteConfirmation(${d.id},${d.studentId})" style="color:red">delete</a> 
+		      </td>
+		     
 		      </tr>
 		   `
 			
@@ -34,5 +38,32 @@ function showData(data){
 	  
 	})
 	
+}
+
+function showDeleteConfirmation(id,studentId){
+	console.log(id,studentId)
+	document.getElementById("id").value=id;
+	document.getElementById("studentId").innerText=studentId;
 	
+	var myModal = new bootstrap.Modal(document.getElementById('deleteConfirmation'), { keyboard: false })
+		
+    myModal.show();
+	
+}
+
+function deleteStudent(){
+	var id = document.getElementById("id").value;
+	console.log("id",id)
+	
+	var xhttp = new XMLHttpRequest();
+	xhttp.onreadystatechange = (state)=>{
+		if (xhttp.readyState == 4 && xhttp.status == 200){
+			console.log("done!!!!!!!!!!!",xhttp.responseText)  
+			setTimeout(() => {
+				window.location.reload();
+			}, 1000);
+		}
+	};
+	xhttp.open("DELETE", "/student-form/"+id, true,);
+	xhttp.send();
 }

@@ -42,6 +42,7 @@ function clickHello(event) {
 	xhttp.onreadystatechange = ()=>{
 		if (xhttp.readyState == 4 && xhttp.status == 200){
 			console.log("done!!!!!!!!!!!")  
+			window.location.hash=''
 			window.location.pathname="/records.html"
 		}
 	};
