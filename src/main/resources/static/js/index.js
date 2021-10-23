@@ -1,10 +1,21 @@
-
-
 function clickHello(event) {
 	event.preventDefault();
 	//const data = manual()
 	const data = autoGenerate();
 	
+	var xhttp = new XMLHttpRequest();
+	
+	xhttp.onreadystatechange = ()=>{
+		if (xhttp.readyState == 4 && xhttp.status == 200){
+			console.log("done!!!!!!!!!!!")  
+			window.location.pathname="/records.html"
+		}
+	};
+	
+	xhttp.open("POST", "/student-form", true,);
+	xhttp.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
+	xhttp.send(JSON.stringify(data));
+
 	console.log(data)
 }
 
