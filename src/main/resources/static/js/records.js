@@ -24,6 +24,7 @@ function showData(data){
 		      <td>${d.fullName}</td>
 		      <td>${d.gender}</td>
 		      <td>${d.dob}</td>
+		      <td><a href="/edit.html#${d.studentId}">edit</a> </td>
 		      </tr>
 		   `
 			

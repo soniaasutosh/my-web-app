@@ -14,7 +14,7 @@ public class StudentForm {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer id;
-
+   
 	@Column(name = "dob")
 	private Date dob;
 
